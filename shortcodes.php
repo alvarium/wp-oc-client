@@ -14,13 +14,27 @@ function ocComponent($attrs) {
         "serverRendering" => get_option('serverRendering')
     ));
 
-    // Render some component
-    $components = $client->renderComponents(array(
+    $components = array(
         array(
             'name' => $attrs['component'],
             'parameters' => $attrs
         )
-    ));
+    );
+
+    if (get_option('includeOcClient')) {
+        $components[] = array('name' => 'oc-client');
+    }
+
+    // Render some component
+    $components = $client->renderComponents($components);
+
+    if (is_array($components['html'])) {
+        $return = '';
+        foreach ($components['html'] as $content) {
+            $return .= $content;
+        }
+        return $return;
+    }
 
     // Print the rendered component and volià
     return $components['html'];

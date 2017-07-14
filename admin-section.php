@@ -2,6 +2,7 @@
 // Register needed settings
 function register_oc_settings() {
 	register_setting( 'oc_client_group', 'serverRendering' );
+	register_setting( 'oc_client_group', 'includeOcClient' );
 }
 add_action( 'admin_init', 'register_oc_settings' );
 
@@ -10,13 +11,13 @@ add_action( 'admin_menu', 'oc_client_plugin_menu' );
 
 // Menu link
 function oc_client_plugin_menu() {
-	add_options_page( 'WP oc-client options', 'WP oc-client', 'manage_options', 'my-unique-identifier', 'my_plugin_options' );
+	add_options_page( 'WP oc-client options', 'WP oc-client', 'manage_options', 'oc-client-page', 'oc_client_options' );
 }
 
 // Rendering options page
-function my_plugin_options() {
+function oc_client_options() {
 	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
     ?>
 	<div class="wrap">
@@ -28,6 +29,10 @@ function my_plugin_options() {
                 <tr valign="top">
                     <th scope="row">Server rendering</th>
                     <td><input type="text" name="serverRendering" value="<?php echo esc_attr( get_option('serverRendering') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Include oc-client script tag</th>
+                    <td><input type="checkbox" name="includeOcClient" <?php echo get_option('includeOcClient') == 'on' ? 'checked' : '' ?> /></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
