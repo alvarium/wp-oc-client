@@ -12,16 +12,5 @@ Version: 0.0.1
 Author URI: http://alvarium.io/
 */
 
-require_once('vendor/autoload.php');
 require_once('admin-section.php');
-
-use OpenComponents\Client;
-
-$client;
-
-function initializePlugin()
-{
-    $client = new Client(array(
-        'serverRendering' => ''
-    ));
-}
+require_once('shortcodes.php');
