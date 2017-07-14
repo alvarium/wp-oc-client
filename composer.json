@@ -1,0 +1,15 @@
+{
+    "name": "alvarium/wp-oc-client",
+    "description": "Wordpress plugin to include OpenComponents in your site Edit",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Genar Trias Ortiz",
+            "email": "genar@alvarium.io"
+        }
+    ],
+    "require": {
+        "opencomponents/oc-client-php": "dev-master"
+    }
+}
