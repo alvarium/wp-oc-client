@@ -193,12 +193,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opencomponents/oc-client-php.git",
-                "reference": "157bdec9f84d384da71c4aeefb99688821efa1a5"
+                "reference": "53d0803a653a6edd4a9d94f4a41c834dc86cd7a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opencomponents/oc-client-php/zipball/157bdec9f84d384da71c4aeefb99688821efa1a5",
-                "reference": "157bdec9f84d384da71c4aeefb99688821efa1a5",
+                "url": "https://api.github.com/repos/opencomponents/oc-client-php/zipball/53d0803a653a6edd4a9d94f4a41c834dc86cd7a0",
+                "reference": "53d0803a653a6edd4a9d94f4a41c834dc86cd7a0",
                 "shasum": ""
             },
             "require": {
@@ -230,7 +230,7 @@
                 }
             ],
             "description": "oc-client PHP implementation",
-            "time": "2017-06-29 15:48:24"
+            "time": "2017-07-14 10:46:20"
         },
         {
             "name": "psr/http-message",
