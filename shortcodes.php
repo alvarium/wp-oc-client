@@ -6,7 +6,7 @@ use OpenComponents\Client;
 function ocComponent($attrs) {
     foreach($attrs as $key => $attr) {
         $pascalCaseKey = lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $key))));
-        $attrs[$pascalCaseKey] = $attr;
+        $attrs[$pascalCaseKey] = html_entity_decode($attr);
     }
 
     // Initializing the client
