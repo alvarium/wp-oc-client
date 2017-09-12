@@ -15,16 +15,16 @@ if [[ -z "$TRAVIS_BRANCH" || "$TRAVIS_BRANCH" != "master" ]]; then
 	exit 0
 fi
 
-WP_ORG_USERNAME="myusername"
-PLUGIN="mergebot"
-PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+WP_ORG_USERNAME="alvarium"
+PLUGIN="wp-oc-client"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PLUGIN_BUILDS_PATH="$PROJECT_ROOT/builds"
 PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
 VERSION=$(/usr/bin/php -f "$PLUGIN_BUILD_CONFIG_PATH/utils/get_plugin_version.php" "$PROJECT_ROOT" "$PLUGIN")
-ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
+ZIP_FILE="https://codeload.github.com/alvarium/wp-oc-client/zip/$VERSION"
 
-# Ensure the zip file for the current version has been built
-if [ ! -f "$ZIP_FILE" ]; then
+# Ensure the zip file for the current version exists on github
+if curl --silent --head $ZIP_FILE | grep "HTTP/" | grep "Not Found" /dev/null; then
     echo "Built zip file $ZIP_FILE does not exist" 1>&2
     exit 1
 fi
