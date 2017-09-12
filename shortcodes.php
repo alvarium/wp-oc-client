@@ -21,6 +21,10 @@ function ocComponent($attrs) {
         )
     );
 
+    if ($attrs['version']) {
+        $components[0]['version'] = $attrs['version'];
+    }
+
     if (get_option('includeOcClient')) {
         $components[] = array('name' => 'oc-client');
     }
