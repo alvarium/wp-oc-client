@@ -12,5 +12,5 @@ Options -> WC oc-client and set your server URL.
 You can include components in any page using shortcodes. You can include your own one like this:
 
 ```html
-[oc-component component="name-of-component" parameter1="value1" parameter_camel="This one will be translated to parameterCamel when passed to component"]
+[oc-component component="name-of-component" parameter1="value1" parameter_camel="This one will be translated to parameterCamel when passed to component" parameter-level1-level2="This one will be translated to parameter.level1.level2 when passed to component"]]
 ```
